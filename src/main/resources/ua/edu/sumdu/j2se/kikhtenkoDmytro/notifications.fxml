@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<?import javafx.stage.Screen?>
+
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+
+<FlowPane fx:id="parent"
+          alignment="CENTER"
+          xmlns="http://javafx.com/javafx/11"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="ua.edu.sumdu.j2se.kikhtenkoDmytro.controller.NotificationsController"
+          maxHeight="140"
+          maxWidth="1600">
+   <fx:define>
+      <Screen fx:factory="getPrimary" fx:id="screen"/>
+   </fx:define>
+   <HBox fx:id="notificationContainer"
+         alignment="CENTER"
+         maxWidth="1600">
+      <FontIcon iconLiteral="fas-exclamation-triangle" />
+      <Label fx:id="notificationText"
+             contentDisplay="CENTER"
+             wrapText="true"
+             textAlignment="CENTER"
+             alignment="CENTER">
+      </Label>
+      <FontIcon iconLiteral="fas-times-circle"
+                styleClass="btn-diluted"
+                onMouseReleased="#hide"/>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+   </HBox>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</FlowPane>

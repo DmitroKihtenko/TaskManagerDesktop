@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.stage.Screen?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<StackPane fx:controller="ua.edu.sumdu.j2se.kikhtenkoDmytro.controller.TaskListController"
+           xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/11"
+           stylesheets="@css/common.css">
+    <fx:define>
+        <Screen fx:factory="getPrimary" fx:id="screen"/>
+    </fx:define>
+    <FlowPane styleClass="bg-diluted"
+              alignment="CENTER"
+              columnHalignment="CENTER"
+              prefWidth="${screen.visualBounds.width}"
+              prefHeight="${screen.visualBounds.height}">
+        <fx:include source="header.fxml"
+                    fx:id="header" />
+        <GridPane fx:id="tableContainer"
+                  styleClass="bg-diluted"
+                  alignment="CENTER"
+                  prefHeight="800"
+                  prefWidth="800">
+            <HBox GridPane.columnIndex="0"
+                  GridPane.rowIndex="0"
+                  GridPane.columnSpan="6"
+                  GridPane.halignment="CENTER"
+                  alignment="CENTER">
+                <Button styleClass="btn-opposite"
+                        onMouseReleased="#searchTasks">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-search" />
+                    </graphic>
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="searchTaskInput"
+                           styleClass="bg-opposite">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </TextField>
+            </HBox>
+            <ScrollPane styleClass="bg-opposite"
+                        fitToWidth="true"
+                        fitToHeight="true"
+                        GridPane.columnIndex="0"
+                        GridPane.rowIndex="1"
+                        GridPane.columnSpan="6"
+                        GridPane.halignment="CENTER">
+                <TableView fx:id="taskTable"
+                           styleClass="bg-opposite">
+                    <columns>
+                        <TableColumn fx:id="taskNameColumn"
+                                     text="Name" />
+                    </columns>
+                </TableView>
+            </ScrollPane>
+            <Button fx:id="previousPageButton"
+                    onMouseReleased="#searchPreviousPage"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="2"
+                    GridPane.columnSpan="1"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-backward" />
+                </graphic>
+            </Button>
+            <Label fx:id="previousPageLine"
+                   styleClass="bg-diluted"
+                   alignment="CENTER"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"
+                   GridPane.columnSpan="1"
+                   GridPane.halignment="CENTER">
+                <font>
+                    <Font size="38.0"/>
+                </font>
+            </Label>
+            <Label fx:id="totalResultsLine"
+                   styleClass="bg-diluted"
+                   alignment="CENTER"
+                   GridPane.columnIndex="2"
+                   GridPane.rowIndex="2"
+                   GridPane.columnSpan="2"
+                   GridPane.halignment="CENTER">
+                Total 0
+                <font>
+                    <Font size="38.0"/>
+                </font>
+            </Label>
+            <Label fx:id="nextPageLine"
+                   styleClass="bg-diluted"
+                   alignment="CENTER"
+                   GridPane.columnIndex="4"
+                   GridPane.rowIndex="2"
+                   GridPane.columnSpan="1"
+                   GridPane.halignment="CENTER">
+                <font>
+                    <Font size="38.0"/>
+                </font>
+            </Label>
+            <Button fx:id="nextPageButton"
+                    onMouseReleased="#searchNextPage"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="5"
+                    GridPane.rowIndex="2"
+                    GridPane.columnSpan="1"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-forward" />
+                </graphic>
+            </Button>
+            <Button onMouseReleased="#back"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="3"
+                    GridPane.columnSpan="3"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-step-backward" />
+                </graphic>
+                Back
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </Button>
+            <Button onMouseReleased="#unselectTask"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="3"
+                    GridPane.rowIndex="3"
+                    GridPane.columnSpan="3"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-ban" />
+                </graphic>
+                Unselect
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </Button>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="16.6" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="16.6" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="16.8" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="16.8" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="16.6" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="16.6" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="70"/>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="10"/>
+            </rowConstraints>
+        </GridPane>
+        <fx:include source="task.fxml"
+                    fx:id="task" />
+    </FlowPane>
+    <fx:include source="notifications.fxml"
+                fx:id="notifications"
+                StackPane.alignment="BOTTOM_CENTER" />
+</StackPane>
