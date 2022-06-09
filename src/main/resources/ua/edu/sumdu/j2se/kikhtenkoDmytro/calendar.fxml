@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.stage.Screen?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Button?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.DatePicker?>
+<?import ua.edu.sumdu.j2se.kikhtenkoDmytro.view.TimePicker?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:controller="ua.edu.sumdu.j2se.kikhtenkoDmytro.controller.CalendarController"
+           xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/18"
+           stylesheets="@css/common.css">
+    <fx:define>
+        <Screen fx:factory="getPrimary" fx:id="screen"/>
+    </fx:define>
+    <FlowPane styleClass="bg-diluted"
+              alignment="CENTER"
+              columnHalignment="CENTER"
+              prefWidth="${screen.visualBounds.width}"
+              prefHeight="${screen.visualBounds.height}">
+        <fx:include source="header.fxml"
+                    fx:id="header" />
+        <GridPane fx:id="tableContainer"
+                  styleClass="bg-diluted"
+                  alignment="CENTER"
+                  prefHeight="800"
+                  prefWidth="800">
+            <DatePicker fx:id="startDateInput"
+                        promptText="Start date"
+                        styleClass="bg-opposite"
+                        GridPane.columnIndex="0"
+                        GridPane.columnSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.rowIndex="0">
+            </DatePicker>
+            <TimePicker fx:id="startTimeInput"
+                        promptText="Start time"
+                        styleClass="bg-opposite"
+                        GridPane.columnIndex="2"
+                        GridPane.columnSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.rowIndex="0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </TimePicker>
+            <DatePicker fx:id="endDateInput"
+                        promptText="End date"
+                        styleClass="bg-opposite"
+                        GridPane.columnIndex="0"
+                        GridPane.columnSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.rowIndex="1">
+            </DatePicker>
+            <TimePicker fx:id="endTimeInput"
+                        promptText="End time"
+                        styleClass="bg-opposite"
+                        GridPane.columnIndex="2"
+                        GridPane.columnSpan="2"
+                        GridPane.halignment="CENTER"
+                        GridPane.rowIndex="1">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </TimePicker>
+            <ScrollPane styleClass="bg-opposite"
+                        fitToWidth="true"
+                        fitToHeight="true"
+                        GridPane.columnIndex="0"
+                        GridPane.rowIndex="2"
+                        GridPane.columnSpan="4"
+                        GridPane.halignment="CENTER">
+                <TableView fx:id="taskTable"
+                           styleClass="bg-opposite">
+                    <columns>
+                        <TableColumn fx:id="taskNameColumn"
+                                     text="Name" />
+                        <TableColumn fx:id="taskTimeColumn"
+                                     text="Time" />
+                    </columns>
+                </TableView>
+            </ScrollPane>
+            <Label fx:id="totalResultsLine"
+                   styleClass="bg-diluted"
+                   alignment="CENTER"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="3"
+                   GridPane.columnSpan="2"
+                   GridPane.halignment="CENTER">
+                Total 0
+                <font>
+                    <Font size="38.0"/>
+                </font>
+            </Label>
+            <Button onMouseReleased="#refresh"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="3"
+                    GridPane.columnSpan="2"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-sync-alt" />
+                </graphic>
+                Refresh
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </Button>
+            <Button onMouseReleased="#editTask"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="4"
+                    GridPane.columnSpan="2"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="far-edit" />
+                </graphic>
+                Edit
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </Button>
+            <Button onMouseReleased="#unselectTask"
+                    styleClass="btn-opposite"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="4"
+                    GridPane.columnSpan="2"
+                    GridPane.halignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-ban" />
+                </graphic>
+                Unselect
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </Button>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="70"/>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="10"/>
+            </rowConstraints>
+        </GridPane>
+        <fx:include source="incoming.fxml"
+                    fx:id="incoming" />
+    </FlowPane>
+    <fx:include source="notifications.fxml"
+                fx:id="notifications"
+                StackPane.alignment="BOTTOM_CENTER" />
+</StackPane>

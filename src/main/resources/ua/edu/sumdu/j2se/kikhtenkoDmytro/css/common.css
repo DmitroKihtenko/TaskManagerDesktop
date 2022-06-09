@@ -1,0 +1,182 @@
+* {
+    -main-color: #363636;
+    -diluted-color: #424242;
+    -opposite-color: #C2C2C2;
+    -error-color: #A60000;
+    -success-color: #1D8C00;
+    -fx-font-size: 24;
+    -fx-icon-size: 24;
+    -fx-font-family: "JetBrains Mono Light";
+}
+
+>Label {
+    -fx-border-width: 0;
+}
+
+.big {
+    -fx-font-size: 36;
+    -fx-icon-size: 36;
+}
+
+.small {
+    -fx-font-size: 16;
+    -fx-icon-size: 16;
+}
+
+.bg-error, .btn-error {
+    -fx-background-color: -error-color;
+    -fx-border-color: -main-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.bg-success, .btn-success {
+    -fx-background-color: -success-color;
+    -fx-border-color: -main-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-error:hover {
+    -fx-background-color: -diluted-color;
+    -fx-border-color: -error-color;
+    -fx-text-fill: -error-color;
+    -fx-prompt-text-fill: -error-color;
+}
+
+.btn-success:hover {
+    -fx-background-color: -diluted-color;
+    -fx-border-color: -success-color;
+    -fx-text-fill: -success-color;
+    -fx-prompt-text-fill: -success-color;
+}
+
+.bg-diluted, .btn-diluted {
+    -fx-background-color: -diluted-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-diluted:hover {
+    -fx-background-color: -main-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.bg-diluted:focused, .btn-diluted:focused {
+    -fx-background-color: -diluted-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-diluted {
+    -fx-background-color: transparent;
+    -fx-border-color: -diluted-color;
+    -fx-text-fill: -diluted-color;
+    -fx-prompt-text-fill: -diluted-color;
+}
+
+.btn-outline-diluted:hover {
+    -fx-background-color: -diluted-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-diluted:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: -diluted-color;
+    -fx-text-fill: -diluted-color;
+    -fx-prompt-text-fill: -diluted-color;
+}
+
+.bg-main, .btn-main {
+    -fx-background-color: -main-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-main:hover {
+    -fx-background-color: -opposite-color;
+    -fx-border-color: -main-color;
+    -fx-text-fill: -main-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.bg-main:hover .btn-main:focused {
+    -fx-background-color: -main-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-main {
+    -fx-background-color: transparent;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-main:hover {
+    -fx-background-color: -main-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-main:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.bg-opposite, .btn-opposite {
+    -fx-background-color: -opposite-color;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -main-color;
+    -fx-prompt-text-fill: -diluted-color;
+}
+
+.btn-opposite:hover {
+    -fx-background-color: -main-color;
+    -fx-border-color: -main-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.bg-opposite:focused, .btn-opposite:focused {
+    -fx-background-color: -opposite-color;
+    -fx-border-color: transparent;
+    -fx-text-fill: -main-color;
+    -fx-prompt-text-fill: -main-color;
+}
+
+.btn-outline-opposite {
+    -fx-background-color: transparent;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+.btn-outline-opposite:hover {
+    -fx-background-color: -opposite-color;
+    -fx-border-color: -main-color;
+    -fx-text-fill: -main-color;
+    -fx-prompt-text-fill: -main-color;
+}
+
+.btn-outline-opposite:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: -opposite-color;
+    -fx-text-fill: -opposite-color;
+    -fx-prompt-text-fill: -opposite-color;
+}
+
+>FontIcon {
+    -fx-icon-color: -fx-text-fill;
+}

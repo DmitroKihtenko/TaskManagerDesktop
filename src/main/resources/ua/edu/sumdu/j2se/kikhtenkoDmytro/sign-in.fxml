@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.stage.Screen?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane styleClass="bg-diluted"
+           xmlns="http://javafx.com/javafx/11"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ua.edu.sumdu.j2se.kikhtenkoDmytro.controller.SignInController"
+           stylesheets="@css/common.css"
+           prefWidth="${screen.visualBounds.width}"
+           prefHeight="${screen.visualBounds.height}">
+   <fx:define>
+      <Screen fx:factory="getPrimary" fx:id="screen"/>
+   </fx:define>
+   <FlowPane alignment="CENTER" columnHalignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="450" prefWidth="800">
+         <Label alignment="CENTER"
+                text="Please, sign in"
+                textAlignment="CENTER"
+                styleClass="bg-diluted"
+                GridPane.columnIndex="0"
+                GridPane.columnSpan="1"
+                GridPane.halignment="CENTER"
+                GridPane.rowIndex="0">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+         </Label>
+         <TextField fx:id="usernameInput"
+                    promptText="Username"
+                    styleClass="bg-opposite"
+                    GridPane.columnIndex="0"
+                    GridPane.columnSpan="1"
+                    GridPane.halignment="CENTER"
+                    GridPane.rowIndex="1">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <font>
+               <Font size="24.0" />
+            </font>
+            <GridPane.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin>
+         </TextField>
+         <PasswordField fx:id="passwordInput"
+                        promptText="Password"
+                        styleClass="bg-opposite"
+                        GridPane.columnIndex="0"
+                        GridPane.columnSpan="1"
+                        GridPane.halignment="CENTER"
+                        GridPane.rowIndex="2">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <font>
+               <Font size="24.0" />
+            </font>
+            <GridPane.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin>
+         </PasswordField>
+         <Button onAction="#signIn"
+                 styleClass="btn-opposite"
+                 GridPane.columnIndex="0"
+                 GridPane.columnSpan="1"
+                 GridPane.halignment="CENTER"
+                 GridPane.rowIndex="3">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <graphic>
+               <FontIcon iconLiteral="fas-sign-in-alt" />
+            </graphic>
+            Sign in
+            <font>
+               <Font size="19.0" />
+            </font>
+            <GridPane.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </GridPane.margin>
+         </Button>
+         <columnConstraints>
+            <ColumnConstraints percentWidth="100" />
+         </columnConstraints>
+      </GridPane>
+   </FlowPane>
+   <fx:include source="notifications.fxml"
+               fx:id="notifications"
+               StackPane.alignment="BOTTOM_CENTER" />
+</StackPane>
